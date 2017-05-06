@@ -4,8 +4,8 @@ import mongoose from 'mongoose';
 import morgan from 'morgan';
 
 // data models and routes
-import Album from './client/app/models/album';
-import { getAlbums, getAlbum, postAlbum, deleteAlbum } from './client/app/routes/album';
+import Album from './app/models/album';
+import { getAlbums, getAlbum, postAlbum, deleteAlbum } from './app/routes/album';
 
 const app = express();
 const port = process.env.PORT || 4300;
