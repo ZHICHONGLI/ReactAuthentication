@@ -37,14 +37,17 @@ app.use((req, res, next) => {
 });
 
 // API
+
+app.post('auth/login', login);
+app,post('auth/signup', signup);
+
 app.route('/albums')
-    .post(postAlbum)
+    .post(varifyAuth ,postAlbum)
     .get(getAlbums);
 
 app.route('/album/:id')
     .get(getAlbum)
-    .delete(deleteAlbum)
-    .put();
+    .delete(verifyAuth, deleteAlbum);
 
 // handle all other requests
 app.route("*").get((req, res) => {
