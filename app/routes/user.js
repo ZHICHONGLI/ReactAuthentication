@@ -32,7 +32,7 @@ const signup = (req, res) => {
       }
       // Notice we also send the token as we want the user to be immediately logged in
       res.json({
-        message: 'Welcome to Retrogames, you are now logged in',
+        message: 'Welcome to Albums, you are now logged in',
         token: createToken(result.name)
       });
     });

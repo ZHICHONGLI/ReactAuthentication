@@ -6,6 +6,7 @@ import morgan from 'morgan';
 // data models and routes
 import Album from './app/models/album';
 import { getAlbums, getAlbum, postAlbum, deleteAlbum } from './app/routes/album';
+import { signup, login, verifyAuth } from './app/routes/user';
 
 const app = express();
 const port = process.env.PORT || 4300;
@@ -38,11 +39,11 @@ app.use((req, res, next) => {
 
 // API
 
-app.post('auth/login', login);
-app,post('auth/signup', signup);
+app.post('/auth/login', login);
+app.post('/auth/signup', signup);
 
 app.route('/albums')
-    .post(varifyAuth ,postAlbum)
+    .post(verifyAuth ,postAlbum)
     .get(getAlbums);
 
 app.route('/album/:id')
