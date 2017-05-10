@@ -6,6 +6,11 @@
     "repository": "https://github.com/ZHICHONGLI/ReactAuthentication.git",
     "author": "Luke Li <leezhc@gmail.com>",
     "license": "MIT",
+    "scripts": {
+        "api": "babel-node server.js",
+        "start": "SET NODE_ENV=development & webpack-dev-server",
+        "build": "SET NODE_ENV=build & webpack"
+    },
     "dependencies": {
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.17.1",
@@ -32,10 +37,5 @@
         "webpack": "^2.5.0",
         "webpack-dev-server": "^2.4.5",
         "webpack-merge": "^4.1.0"
-    },
-    "scripts": {
-        "api": "babel-node server.js",
-        "start": "SET NODE_ENV=development & webpack-dev-server",
-        "build": "SET NODE_ENV=build & webpack"
     }
 }
