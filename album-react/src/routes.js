@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import { Home, Welcome, About, Contact } from './components/index';
+import { AddGameContainer, GamesContainer } from './components';
 
 // Use hashHistory for easier development
 const routes = (
