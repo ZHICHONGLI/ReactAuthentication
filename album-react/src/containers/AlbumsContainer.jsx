@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, GamesListManager } from '../components';
+import $ from 'jquery';
 
 export default class AlbumsContainer extends Component {
   constructor (props) {

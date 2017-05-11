@@ -14,7 +14,8 @@ export default class AddAlbumContainer extends Component {
   }
   submit () {
     // We create the newGame object to be posted to the server
-    const newGame = Object.assign({}, { picture: $('#picture').attr('src') }, this.state.newGame);
+   // const newGame = Object.assign({}, { picture: $('#picture').attr('src') }, this.state.newGame);
+    const newGame = Object.assign({}, this.state.newGame);
     fetch('http://localhost:4300/albums', {
       headers: new Headers({
         'Content-Type': 'application/json'
@@ -53,7 +54,7 @@ export default class AddAlbumContainer extends Component {
       name: document.getElementById('name').value,
       description: document.getElementById('description').value,
       year: document.getElementById('year').value,
-      picture: $('#picture').attr('src')
+    //  picture: $('#picture').attr('src')
     };
     this.setState({ newGame });
   }
