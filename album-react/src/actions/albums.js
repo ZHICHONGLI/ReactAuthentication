@@ -2,7 +2,8 @@ import {
     GET_ALBUMS,
     GET_ALBUMS_SUCCESS,
     GET_ALBUMS_FAILURE,
-    SET_SEARCH_BAR
+    SET_SEARCH_BAR,
+    SHOW_SELECTED_ALBUM
 } from '../constants/albums';
 
 function getAblums () {
@@ -11,9 +12,10 @@ function getAblums () {
     }
 };
 
-function getAblumsSuccess () {
+function getAblumsSuccess (albums) {
     return {
-        type: GET_ALBUMS_SUCCESS
+        type: GET_ALBUMS_SUCCESS,
+        albums
     }
 }
 
@@ -30,8 +32,17 @@ function setSearchBar (keyword) {
     };
 }
 
+function showSelectedAlbum (album) {
+    return {
+        type: SHOW_SELECTED_ALBUM,
+        album
+    };
+}
+
 export {
     getAblums,
     getAblumsSuccess,
-    getAblumsFailure
+    getAblumsFailure,
+    setSearchBar,
+    showSelectedAlbum
 }
