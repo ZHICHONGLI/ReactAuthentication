@@ -3,7 +3,8 @@ import Immutable from 'immutable';
 import {
     GET_ALBUMS_SUCCESS,
     GET_ALBUMS_FAILURE,
-    SET_SEARCH_BAR
+    SET_SEARCH_BAR,
+    SHOW_SELECTED_ALBUM
 } from '../constants/albums'
 
 const initialState = Immutable.Map();
@@ -18,6 +19,9 @@ export default (state = initialState, action) => {
         }
         case SET_SEARCH_BAR: {
             return state.merge({ searchBar: action.keyword });
+        }
+        case SHOW_SELECTED_ALBUM: {
+            return state.merge({ selectedAlbum: action.album });
         }
         default:
             return state;
