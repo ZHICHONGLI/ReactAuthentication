@@ -55,6 +55,10 @@ class AlbumsContainer extends Component {
     this.props.albumsActions.setSearchBar( event.target.value.toLowerCase());
   }
 
+  deleteAlbum (id) {
+    this.props.albumsActions.deleteAlbum(id);
+  }
+
   render () {
     const { albums, searchBar, selectedAlbum } = this.props;
     console.dir(albums);
