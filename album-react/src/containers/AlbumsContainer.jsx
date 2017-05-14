@@ -25,7 +25,7 @@ class AlbumsContainer extends Component {
   }
 
   toggleModal (index) {
-    this.setState({ selectedAlbum: this.state.albums[index] });
+    this.props.albumsActions.showSelectedAlbum(this.props.albums[index]);
     // Since we included bootstrap we can show our modal through its syntax
     $('#game-modal').modal();
   }
@@ -56,8 +56,7 @@ class AlbumsContainer extends Component {
   }
 
   render () {
-    const { selectedAlbum } = this.state;
-    const { albums, searchBar } = this.props;
+    const { albums, searchBar, selectedAlbum } = this.props;
     console.dir(albums);
     return (
       <div>
@@ -78,7 +77,8 @@ class AlbumsContainer extends Component {
 function mapStateToProps (state) {
   return { // We get all the albums to list in the page
     albums: state.getIn(['albums', 'list'], Immutable.List()).toJS(),
-    searchBar: state.getIn(['albums', 'searchBar'], '')
+    searchBar: state.getIn(['albums', 'searchBar'], ''),
+    selectedAlbum: state.getIn(['albums', 'selectedAlbum'], Immutable.List()).toJS()
   }
 }
 // We can dispatch actions to the reducer and sagas

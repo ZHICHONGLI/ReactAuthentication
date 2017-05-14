@@ -3,7 +3,10 @@ import {
     GET_ALBUMS_SUCCESS,
     GET_ALBUMS_FAILURE,
     SET_SEARCH_BAR,
-    SHOW_SELECTED_ALBUM
+    SHOW_SELECTED_ALBUM,
+    DELETE_ALBUM,
+    DELETE_ALBUM_SUCCESS,
+    DELETE_ALBUM_FAILURE
 } from '../constants/albums';
 
 function getAblums () {
@@ -16,13 +19,13 @@ function getAblumsSuccess (albums) {
     return {
         type: GET_ALBUMS_SUCCESS,
         albums
-    }
+    };
 }
 
 function getAblumsFailure () {
     return {
         type: GET_ALBUMS_FAILURE
-    }
+    };
 }
 
 function setSearchBar (keyword) {
@@ -39,10 +42,32 @@ function showSelectedAlbum (album) {
     };
 }
 
+function deleteAlbum () {
+    return {
+        type: DELETE_ALBUM
+    };
+}
+
+function deleteAlbumSuccess (albums) {
+    return {
+        type: DELETE_ALBUM_SUCCESS,
+        albums
+    };
+}
+
+function deleteAlbumFailure () {
+    return {
+        type: DELETE_ALBUM_FAILURE
+    };
+}
+
 export {
     getAblums,
     getAblumsSuccess,
     getAblumsFailure,
     setSearchBar,
-    showSelectedAlbum
-}
+    showSelectedAlbum,
+    deleteAlbum,
+    deleteAlbumFailure,
+    deleteAlbumSuccess
+};

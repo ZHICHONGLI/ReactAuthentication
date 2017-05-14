@@ -1,8 +1,11 @@
-import { watchGetAlbums } from './albums';
+import { watchGetAlbums,
+         watchDeleteAlbum
+    } from './albums';
 
 export default function* rootSaga () {
 // Start all the sagas in parallel
     yield [
-        watchGetAlbums()
+        watchGetAlbums(),
+        watchDeleteAlbum() // must be run in parallel
     ];
 }
