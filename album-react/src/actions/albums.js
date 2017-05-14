@@ -9,7 +9,7 @@ import {
     DELETE_ALBUM_FAILURE
 } from '../constants/albums';
 
-function getAblums () {
+function getAlbums () {
     return {
         type: GET_ALBUMS
     }
@@ -62,7 +62,7 @@ function deleteAlbumFailure () {
 }
 
 export {
-    getAblums,
+    getAlbums,
     getAblumsSuccess,
     getAblumsFailure,
     setSearchBar,

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 
 export default class Modal extends PureComponent {
   render () {
-    const { _id, img, name, description, year, picture } = this.props.game;
+    const { _id, img, name, description, year, picture } = this.props.album;
     return(
       <div className="modal fade" id="game-modal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div className="modal-dialog" role="document">

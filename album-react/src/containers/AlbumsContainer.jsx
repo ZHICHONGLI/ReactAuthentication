@@ -88,7 +88,7 @@ function mapStateToProps (state) {
 // We can dispatch actions to the reducer and sagas
 function mapDispatchToProps (dispatch) {
   return {
-    gamesActions: bindActionCreators(albumsActionCreators, dispatch)
+    albumsActions: bindActionCreators(albumsActionCreators, dispatch)
   };
 }
 // Finally we export the connected AlbumsContainer

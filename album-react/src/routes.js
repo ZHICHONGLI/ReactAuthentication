@@ -11,7 +11,7 @@ const store = configureStore();
 
 // Use hashHistory for easier development
 const routes = (
-  <Provider>
+  <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={Home}>
         <IndexRoute component={Welcome} />

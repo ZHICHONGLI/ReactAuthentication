@@ -4,7 +4,7 @@ import Game from './Game';
 
 export default class GamesListManager extends PureComponent {
   render () {
-    const { games, searchBar, setSearchBar, toggleModal, deleteGame } = this.props;
+    const { albums, searchBar, setSearchBar, toggleModal, deleteAlbum } = this.props;
     return (
 
       <div className="container scrollable">
@@ -18,7 +18,7 @@ export default class GamesListManager extends PureComponent {
         <div className="row">
         {
     // A Game is only shown if its name contains the string from the searchBar
-          games
+          albums
             .filter(game => game.name.toLowerCase().includes(searchBar))
             .map((game, i) => {
               return (
@@ -26,7 +26,7 @@ export default class GamesListManager extends PureComponent {
                   key={game._id}
                   i={i}
                   toggleModal={toggleModal}
-                  deleteGame={deleteGame}
+                  deleteAlbum={deleteAlbum}
                 />
               );
             })
