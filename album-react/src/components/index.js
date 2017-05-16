@@ -7,7 +7,8 @@ import Game from './Game.jsx';
 import GamesListManager from './GamesListManager.jsx';
 import Archive from './Archive.jsx';
 import Modal from './Modal.jsx';
+import Login from './Login.jsx';
 
 
 // We export all the components at once
-export { About, Contact, Home, Welcome, Form, Game, GamesListManager, Archive, Modal };
+export { About, Contact, Home, Welcome, Form, Game, GamesListManager, Archive, Modal, Login };
