@@ -18,28 +18,31 @@ const history = syncHistoryWithStore(hashHistory, store, {
 
 const routes = (
   <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={Home}>
-        <IndexRoute component={Welcome} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-      </Route>
-      <Route path="/albums" component={Archive}>
-        <IndexRoute component={AlbumsContainer} />
-        <Route path="add" component={AddAlbumContainer} />
-      </Route>
-      <Route path="/auth" component={Archive}>
-        <Route path="login" component={Login} />
-      </Route>
-    </Router>
-    <ReduxToastr
-      timeOut={2000}
-      newestOnTop={false}
-      preventDuplicates={true}
-      position="top-right"
-      transitionIn="fadeIn"
-      transitionOut="fadeOut"
-    />
+    <div className="wrapper">
+      <Router history={history}>
+        <Route path="/" component={Home}>
+          <IndexRoute component={Welcome} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+        </Route>
+        <Route path="/albums" component={Archive}>
+          <IndexRoute component={AlbumsContainer} />
+          <Route path="add" component={AddAlbumContainer} />
+        </Route>
+        <Route path="/auth" component={Archive}>
+          <Route path="login" component={Login} />
+        </Route>
+      </Router>
+      <ReduxToastr
+        timeOut={2000}
+        newestOnTop={false}
+        preventDuplicates={true}
+        position="top-right"
+        transitionIn="fadeIn"
+        transitionOut="fadeOut"
+      />
+    </div>
+
   </Provider>
 );
 
