@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import rootSaga from './sages';
@@ -10,7 +10,11 @@ const configureStore = () => {
     // Store created with parameters of reducer + saga-middleware
     const store = createStore(
         reducer,
-        applyMiddleware(sagaMiddleware)
+        compose(
+            applyMiddleware(sagaMiddleware),
+            window.devToolsExtension ? window.devToolsExtension() : (f) => f
+        )
+        
     );
     // rootSaga starts all the sagas iin parallel
     sagaMiddleware.run(rootSaga);

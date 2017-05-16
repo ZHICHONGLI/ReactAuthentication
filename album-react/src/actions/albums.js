@@ -42,9 +42,10 @@ function showSelectedAlbum (album) {
     };
 }
 
-function deleteAlbum () {
+function deleteAlbum (id) {
     return {
-        type: DELETE_ALBUM
+        type: DELETE_ALBUM,
+        id
     };
 }
 

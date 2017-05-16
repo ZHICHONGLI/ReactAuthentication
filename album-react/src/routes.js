@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 // Store to be passed to Provider
 import configureStore from './store';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
-import { Home, Welcome, About, Contact, Archive } from './components/index';
+import { Home, Welcome, About, Contact, Archive } from './components';
 import { AddAlbumContainer, AlbumsContainer } from './containers';
 
 const store = configureStore();
@@ -24,7 +24,6 @@ const routes = (
       </Route>
     </Router>
   </Provider>
-
 );
 
 export default routes;
