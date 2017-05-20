@@ -3,6 +3,10 @@ import {
   LOGIN_USER,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAILURE,
+
+  SIGNUP_USER,
+  SIGNUP_USER_SUCCESS,
+  SIGNUP_USER_FAILURE
 } from '../constants/auth';
 
 // Intercepted by a redux-saga
@@ -28,8 +32,37 @@ function loginUserFailure () {
   };
 }
 
+/* 
+ * signupUser dispatched from Signup component
+ */ 
+function signupUser () {
+  return {
+    type: SIGNUP_USER
+  };
+}
+/* 
+ * SignupUserSuccess send the token to be added to the state
+ */ 
+function signupUserSuccess (token) { // It carries the token!
+  return {
+    type: SIGNUP_USER_SUCCESS,
+    token
+  };
+}
+/* 
+ * In case of server failure
+ */
+function signupUserFailure () {
+  return {
+    type: SIGNUP_USER_FAILURE
+  };
+}
+
 export {
   loginUser,
   loginUserSuccess,
-  loginUserFailure
+  loginUserFailure,
+  signupUser,
+  signupUserSuccess,
+  signupUserFailure
 };

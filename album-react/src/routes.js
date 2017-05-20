@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 // Store to be passed to Provider
 import configureStore from './store';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
-import { Home, Welcome, About, Contact, Archive, Login } from './components';
+import { Home, Welcome, About, Contact, Archive, Login, Signup } from './components';
 import { AddAlbumContainer, AlbumsContainer } from './containers';
 import { syncHistoryWithStore } from 'react-router-redux';
 import ReduxToastr from 'react-redux-toastr';
@@ -31,6 +31,7 @@ const routes = (
         </Route>
         <Route path="/auth" component={Archive}>
           <Route path="login" component={Login} />
+          <Route path="signup" component={Signup} />
         </Route>
       </Router>
       <ReduxToastr
