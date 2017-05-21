@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router';
-import userAuthenticated from '../utils/authWrapper';
+import userAuthenticated from '../utils/authwrapper';
 
 const options = {
   authSelector: state => state.get('auth'),

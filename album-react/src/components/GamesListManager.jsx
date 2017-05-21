@@ -1,15 +1,16 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router';
-import Game from './Game';
+import Album from './Album';
+import AddAlbumPanel from './AddAlbumPanel';
 
 export default class GamesListManager extends PureComponent {
   render () {
-    const { albums, searchBar, setSearchBar, toggleModal, deleteAlbum } = this.props;
+    const { albums, searchBar, setSearchBar, toggleModal, deleteAlbum,userName, logout } = this.props;
     return (
 
       <div className="container scrollable">
         <div className="row text-left">
-          <Link to="/games/add" className="btn btn-danger">Add a new Game!</Link>
+          <AddAlbumPanel logout={logout} userName={userName} />
         </div>
         <div className="row">
           <input
@@ -22,7 +23,7 @@ export default class GamesListManager extends PureComponent {
             .filter(game => game.name.toLowerCase().includes(searchBar))
             .map((game, i) => {
               return (
-                <Game  {...game}
+                <Album  {...game}
                   key={game._id}
                   i={i}
                   toggleModal={toggleModal}

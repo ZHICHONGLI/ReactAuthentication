@@ -5,6 +5,8 @@ import Immutable from 'immutable';
 import { Modal, GamesListManager } from '../components';
 // Import the action-creators to be  binde with bindActionCreators
 import * as albumsActionCreators from '../actions/albums';
+import * as authActionCreators from '../actions/auth.js';
+import { toastr } from 'react-redux-toastr';
 import $ from 'jquery';
 
 // Do not export AlbumsContainer as it is 'almost' a dumb component
@@ -17,6 +19,7 @@ class AlbumsContainer extends Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.deleteAlbum = this.deleteAlbum.bind(this);
     this.setSearchBar = this.setSearchBar.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   // Once the component mounted it fetches the data from the server
@@ -36,7 +39,7 @@ class AlbumsContainer extends Component {
   }
 
   deleteAlbum (id) {
-    fetch(`http://localhost:4300/albums/${id}`, {
+  /*  fetch(`http://localhost:4300/albums/${id}`, {
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
@@ -48,6 +51,8 @@ class AlbumsContainer extends Component {
       this.setState({ games: this.state.games.filter(game => game._id !== id) }); 
       console.log(response.message);
     });
+    */
+    this.props.albumsActions.deleteAlbum(id);
   }
 
   setSearchBar (event) { 
@@ -55,12 +60,14 @@ class AlbumsContainer extends Component {
     this.props.albumsActions.setSearchBar( event.target.value.toLowerCase());
   }
 
-  deleteAlbum (id) {
-    this.props.albumsActions.deleteAlbum(id);
+  logout () {
+    this.props.authAction.logoutUser();
+    toastr.success('Albums Archive', 'Logged out');
+    localStorage.removeItem('token');
   }
 
   render () {
-    const { albums, searchBar, selectedAlbum } = this.props;
+    const { albums, searchBar, selectedAlbum, userName, authActions } = this.props;
     console.dir(albums);
     return (
       <div>
@@ -71,6 +78,8 @@ class AlbumsContainer extends Component {
           setSearchBar={this.setSearchBar}
           toggleModal={this.toggleModal}
           deleteAlbum={this.deleteAlbum}
+          userName={userName}
+          logout={this.logout}
         />
       </div>
     );
@@ -82,13 +91,15 @@ function mapStateToProps (state) {
   return { // We get all the albums to list in the page
     albums: state.getIn(['albums', 'list'], Immutable.List()).toJS(),
     searchBar: state.getIn(['albums', 'searchBar'], ''),
-    selectedAlbum: state.getIn(['albums', 'selectedAlbum'], Immutable.List()).toJS()
+    selectedAlbum: state.getIn(['albums', 'selectedAlbum'], Immutable.List()).toJS(),
+    userName: state.getIn(['auth', 'name'])
   }
 }
 // We can dispatch actions to the reducer and sagas
 function mapDispatchToProps (dispatch) {
   return {
-    albumsActions: bindActionCreators(albumsActionCreators, dispatch)
+    albumsActions: bindActionCreators(albumsActionCreators, dispatch),
+    authActions: bindActionCreators(authActionCreators, dispatch)
   };
 }
 // Finally we export the connected AlbumsContainer

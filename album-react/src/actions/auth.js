@@ -3,6 +3,7 @@ import {
   LOGIN_USER,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAILURE,
+  LOGOUT_USER,
 
   SIGNUP_USER,
   SIGNUP_USER_SUCCESS,
@@ -29,6 +30,12 @@ function loginUserSuccess (token) { // It carries the token!
 function loginUserFailure () {
   return {
     type: LOGIN_USER_FAILURE
+  };
+}
+
+function logoutUser () {
+  return {
+    type: LOGIN_USER
   };
 }
 
@@ -64,5 +71,6 @@ export {
   loginUserFailure,
   signupUser,
   signupUserSuccess,
-  signupUserFailure
+  signupUserFailure,
+  logoutUser
 };

@@ -4,6 +4,7 @@ import jwtDecode from 'jwt-decode';
 import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAILURE,
+  LOGOUT_USER,
 
   SIGNUP_USER_SUCCESS,
   SIGNUP_USER_FAILURE
@@ -29,7 +30,8 @@ export default (state = initialState, action) => {
     }
     // In case of failure the state goes back to the initial one
     case SIGNUP_USER_FAILURE:
-    case LOGIN_USER_FAILURE: return state.merge(initialState);
+    case LOGIN_USER_FAILURE:
+    case LOGOUT_USER: return state.merge(initialState);
     default: return state;
   }
 }
