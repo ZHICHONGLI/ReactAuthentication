@@ -10,11 +10,11 @@ import { bindActionCreators } from 'redux';
 class Login extends PureComponent {
   login () {
     // dispatch action to the redux-saga
-    this.props.authActions.loginUser(this.props.location.query.next || '/games');
+    this.props.authActions.loginUser(this.props.location.query.next || '/albums');
   }
 
   render () {
-    const { picture, uploadPicture } = this.props;
+    // const { picture, uploadPicture } = this.props;
     return (
       <div className="row scrollable">
         <div className="col-md-offset-2 col-md-8">

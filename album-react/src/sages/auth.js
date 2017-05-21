@@ -44,7 +44,7 @@ function* loginUser (action) {
     // Redux-toastr shows the users nice notifications
     yield put(toastrActions.add({
        type: 'success', // success is a green notification
-       title: 'Retrogames Archive',
+       title: 'Albums Archive',
        message: result.message
     }));
     // We also save the token in the local storage
@@ -65,7 +65,7 @@ function* loginUser (action) {
     yield put(loginUserFailure());
     yield put(toastrActions.add({
        type: 'error', // Red notification
-       title: 'Retrogames Archive',
+       title: 'Albums Archive',
        message: message
      }));
   }
@@ -79,7 +79,7 @@ function* signupUser () {
     // Show a notification in the browser 
     yield put(toastrActions.add({
        type: 'success',
-       title: 'Retrogames Archive',
+       title: 'Albums Archive',
        message: result.message
     }));
     // Set the token in the local storage
@@ -100,7 +100,7 @@ function* signupUser () {
     yield put(signupUserFailure());
     yield put(toastrActions.add({
        type: 'error',
-       title: 'Retrogames Archive',
+       title: 'Albums Archive',
        message: message
      }));
   }
